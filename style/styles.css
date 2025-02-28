@@ -1,0 +1,121 @@
+@font-face {
+    font-family: Nosifer-d;
+    src: url(../fonts/Nosifer-Regular.ttf);
+}
+@font-face {
+    font-family: Newsreader-d;
+    src: url(../fonts/Newsreader_9pt-Regular.ttf);
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root {
+    --index: calc(1vh + 1vw);
+    --gutter: 30px;
+    --side-small: 25;
+    --side-big: 38;
+    --depth: 6200px;
+    --transition: .75s cubic-bezier(.075, .5, 0, 1)
+}
+body {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    font-size: calc(var(--index) * .8);
+    line-height: 1.75;
+    height: var(--depth);
+    font-weight: 300;
+    font-family: Newsreader-d, sans-serif;
+}
+.container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    perspective: 1500px;
+}
+.gallery {
+    transform-style: preserve-3d;
+    height: 100%;
+}
+.frame {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition), opacity .75s ease;
+    will-change: transform;
+    transform-style: preserve-3d;
+}
+h2, h3 {
+    font-weight: 100;
+    text-transform: uppercase;
+    width: min-content;
+    line-height: 1;
+}
+.frame h2 {
+    text-align: center;
+    font-size: calc(var(--index) * 3.3);
+    font-family: Nosifer-d, sans-serif;
+    background-image: linear-gradient(180deg, rgb(167, 227, 255), rgb(21, 25, 87));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.frame-media {
+    position: relative;
+    background-position: center;
+    background-size: cover;
+}
+.tall {
+    width: calc(var(--index) * var(--side-small));
+    height: calc(var(--index) * var(--side-big));
+}
+.fat {
+    height: calc(var(--index) * var(--side-small));
+    width: calc(var(--index) * var(--side-big));
+}
+.square {
+    height: calc(var(--index) * var(--side-small));
+    width: calc(var(--index) * var(--side-small));
+}
+.frame-media__left {right: calc(var(--side-small) / 2 * var(--index) + var(--gutter));}
+
+.frame-media__right {left: calc(var(--side-small) / 2 * var(--index) + var(--gutter));}
+
+.frame-media__right-fat {left: calc(var(--side-big) / 2 * var(--index) + var(--gutter));}
+
+.frame__bg {background-color: rgb(0 0 0 / .9);}
+
+.img-flip {transform: scaleX(-1);}
+
+.text-left {
+    position: relative;
+    right: 22.9vw;
+}
+.text-right {
+    position: relative;
+    left: 18vw;
+}
+.frame h3 {
+    font-size: calc(var(--index) * 2);
+}
+.frame p {
+    max-width: 25vw;
+    margin-top: 5vh;
+}
+#video-rotate {rotate: -90deg;}
+
+.soundbutton {
+    position: fixed;
+    bottom: 5vh;
+    right: 5vw;
+    cursor: pointer;
+    width: 24px;
+    transition: .25s ease;
+}
+
+.soundbutton.paused {
+    opacity: .25;
+}
