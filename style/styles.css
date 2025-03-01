@@ -16,7 +16,7 @@
     --gutter: 30px;
     --side-small: 25;
     --side-big: 38;
-    --depth: 6200px;
+    --depth: 14500px;
     --transition: .75s cubic-bezier(.075, .5, 0, 1)
 }
 body {
@@ -115,7 +115,11 @@ h2, h3 {
     width: 24px;
     transition: .25s ease;
 }
+.soundbutton.paused {opacity: .25;}
 
-.soundbutton.paused {
-    opacity: .25;
+::-webkit-scrollbar {background-image: linear-gradient(to bottom, rgb(21 25 87), rgb(0 0 0));}
+
+::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(to bottom, rgb(167, 227, 255), rgb(21, 25, 87));
+    border-radius: .5rem;
 }
